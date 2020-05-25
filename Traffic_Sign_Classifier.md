@@ -1,4 +1,4 @@
-# **Traffic Sign Recognition**
+# **Traffic Sign Recognition** 
 
 **Build a Traffic Sign Recognition Project**
 
@@ -13,13 +13,13 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./output/random_sample.png
-[image2]: ./output/histogram.png
+[image1]: ./output/random_sample.png 
+[image2]: ./output/histogram.png 
 [image3]: ./downloaded_images/00000_00000.ppm
 [image4]: ./downloaded_images/00000_00001.ppm
-[image5]: ./downloaded_images/00000_00002.ppm
+[image5]: ./downloaded_images/00000_00002.ppm 
 [image6]: ./downloaded_images/00000_00003.ppm
-[image7]: ./downloaded_images/00000_00004.ppm
+[image7]: ./downloaded_images/00000_00004.ppm 
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -66,9 +66,9 @@ I did not use grayscale images since I think color will provide additional valua
 
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					|
-|:---------------------:|:---------------------------------------------:|
-| Input         		| 32x32x3 RGB image   							|
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 32x32x3 RGB image   							| 
 | Convolution 5x5     	| 1x1 stride, valid padding, outputs 28x28x6 	|
 | RELU					|												|
 | Max pooling	      	| 2x2 stride,  outputs 14x14x6 				|
@@ -76,10 +76,10 @@ My final model consisted of the following layers:
 | RELU					|												|
 | Max pooling	      	| 2x2 stride,  outputs 5x5x16 				|
 | Fully connected		|  Inputs 400, Outputs 120       									|
-| RELU					|
+| RELU					|	
 | Dropout		|  Keep probability: 0.5      									|
 | Fully connected		|  Outputs 84       									|
-| RELU					|
+| RELU					|	
 | Dropout		|  Keep probability: 0.5      									|
 | Softmax				|         									|
 |																
@@ -109,39 +109,41 @@ My final model results were:
 
 I chose the LeNet introduced in the course, which is known for its good results on image net dataset on classification, given the similarity of task, After hyperparameter tuning mentioned above, I got my validation accuracy yield monotomic increase. And the test accuracy is 93.2% which is good enough.
 
-
+ 
 ### Test a Model on New Images
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 Here are five German traffic signs that I found on the web:
 
-![image3] ![image4] ![image5]
+![image3] ![image4] ![image5] 
 ![image6] ![image7]
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
 
-| Image			        |     Prediction	        					|
-|:---------------------:|:---------------------------------------------:|
-| Speed limit (20km/h)  		| Speed limit (20km/h)   									|
+| Image			        |     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Speed limit (20km/h)  		| Speed limit (20km/h)   									| 
 | Speed limit (120km/h)    			| Speed limit (120km/h)									|
 |No passing for vehicles over 3.5 metric tons					| No passing for vehicles over 3.5 metric tons										|
 | Yield      		| Yield				 				|
 | Ahead only			| Ahead only     							|
 
-The model was able to correctly guess 5 of the 5 traffic signs. I found that I predicted the results 100% correct.
+The model was able to correctly guess 5 of the 5 traffic signs. I found that I predicted the results 100% correct. 
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-One thing a little confusing to me is that for each image, the top 5 softmax probablities are all [1,0,0,0,0], which means that my model is VERY VERY confident about its prediction.
+One thing a little confusing to me is that for each image, the top 5 softmax probablities are all [1,0,0,0,0], which means that my model is VERY VERY confident about its prediction. 
 
 I first doubted it could be overfitting but I got the same results with or without the dropout layers. Then I doubted that maybe the test images themselves are too good or easy to classify, then I used a random non-sign image, and then I got [1,0,0,0,0] output: the model is too confident even though it's apparently wrong.
 
-Then I doubted that maybe the number of epochs is too large so that the network became overconfident. However, I got something similar like [1, 1e-23, 0, 0, 0] when I decreased num_epoch from 15 to 1.
+Then I doubted that maybe the number of epochs is too large so that the network became overconfident. However, I got something similar like [1, 1e-23, 0, 0, 0] when I decreased num_epoch from 15 to 1. 
 
 Finally, I doubted that maybe it's because I did not transform my images to grayscale and the model became sensitive to the color of the signs, while I don't have time to test or dive into it.
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+
+
